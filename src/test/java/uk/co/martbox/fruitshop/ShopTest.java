@@ -9,7 +9,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple App.
+ * Unit test for ShopTest
  */
 public class ShopTest 
     extends TestCase
@@ -50,7 +50,14 @@ public class ShopTest
     
     public void testTotalOfItems() {
     	Shop shop = new Shop();
-    	List<String> items = Arrays.asList("orange", "apple", "apple", "");
-    	assertEquals(new BigDecimal("1.45"), shop.getTotalPrice(items));
+    	List<String> items = Arrays.asList("orange", "apple", "");
+    	assertEquals(new BigDecimal("0.85"), shop.getTotalPrice(items));
     }
+    
+    public void testTotalOfItemsWithOffers() {
+    	Shop shop = new Shop();
+    	List<String> items = Arrays.asList("orange", "apple", "apple", "orange", "orange");
+    	assertEquals(new BigDecimal("1.10"), shop.getTotalPrice(items));
+    }
+    
 }
